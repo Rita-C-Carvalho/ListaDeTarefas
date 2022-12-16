@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+:root {
+  --primary-color: rgb(17, 86, 102);
+  --primary-color-darker: rgb(9, 48, 56);
+}
+
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background: black;
+  font-family: 'Open sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 50px auto;
+  background:transparent;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 50px lime;
+  color: white;
+}
+
+h1{
+  color: lime;
+  text-align: center;
+}
+
+.input-nova-tarefa{
+  border-radius: 5px;
+  border: solid 2px lime;
+  height: 30px;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px lime;
+  color: green;
+  width: 300px;
+}
+
+input::placeholder{
+  color:green;
+}
+
+button{
+  background-color: lime;
+  border-radius: 10px;
+  height: 40px;
+  color: green;
+  border: 2px solid white;
+  margin-left: 20px;
+  box-shadow: 1px 1px 5px white;
+}
+
+button:hover{
+  box-shadow: 1px 1px 15px white;
+}
+
+ul{
+  margin-top: 0%;
+}
+
+  li{
+  padding-right: 35px;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+ 
+.apagar:hover{
+  width: 40px;
+  height: 40px;
+}
