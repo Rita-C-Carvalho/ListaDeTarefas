@@ -29,6 +29,7 @@ function criaTarefa(textoInput){
     listaTarefas.appendChild(li);
     limpaInput();
     criaBotaoApagar(li);
+    salvarTarefas();
 }
 
 botaoAdicionar.addEventListener('click', function(){
@@ -40,5 +41,33 @@ document.addEventListener('click', function(e){
     const el = e.target;
     if(el.classList.contains('apagar')){
      el.parentElement.remove();
+     salvarTarefas();
     }
 });
+
+function salvarTarefas(){
+    const liTarefas = listaTarefas.querySelectorAll('li'); //para pegar todas as tarefas da lista.
+    const arrayListaDeTarefas = [];
+
+    for (let tarefa of liTarefas){
+        let tarefaTexto = tarefa.innerText;
+        tarefaTexto = tarefaTexto.replace('Apagar',''); //comando para pegar soente o texto das tarefas sem o botão
+        console.log(tarefaTexto);
+        arrayListaDeTarefas.push(tarefaTexto); //comando para adicionar os itens da tarefa no array
+    }
+    
+    const tarefasJSON = JSON.stringify(arrayListaDeTarefas);
+    localStorage.setItem('listaTarefas', tarefasJSON);
+    
+    //localStorage é um lugar no navegador onde podemos salvar coisas
+}
+
+function adicionaTarefasSalvas(){ //deixar as tarefas salvas no local storage
+    const tarefas = localStorage.getItem('listaTarefas');
+    const listaDeTarefas = JSON.parse(tarefas);
+    for(let tarefa of listaDeTarefas){
+        criaTarefa(tarefa);
+    }
+}
+
+adicionaTarefasSalvas();
